@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="calculator"></div>
+
+    <input type="text" id="result" readonly>
+    <button onclick="ClearResult()">C</button>
+    <button onClick="appendtoResult('+')">+</button>
+    <button onClick="appendtoResult('-')">-</button>
+    <button onClick="appendtoResult('/')">/</button>
+    <button onClick="appendtoResult('*')">*</button>
+    <button onClick="appendtoResult('1')">1</button>
+    <button onClick="appendtoResult('2')">2</button>
+    <button onClick="appendtoResult('3')">3</button>
+    <button onClick="appendtoResult('4')">4</button>
+    <button onClick="appendtoResult('5')">5</button>
+    <button onClick="appendtoResult('6')">6</button>
+    <button onClick="appendtoResult('7')">7</button>
+    <button onClick="appendtoResult('8')">8</button>
+    <button onClick="appendtoResult('9')">9</button>
+    <button onClick="appendtoResult('0')">0</button>
+    <button onClick ="Calculate()">=</button>
+
+    <script>
+
+    function appendtoResult(value){
+        document.getElementById('result').value += value;
+    }
+    function ClearResult(){
+        document.getElementById('result').value='';
+    }
+    function Calculate(){
+        var result = document.getElementById('result').value;
+        var calculatedResult = eval(result);
+        document.getElementById('result').value= calculatedResult;
+
+    }
+    
+
+
+</script>
+  
+</body>
+</html>

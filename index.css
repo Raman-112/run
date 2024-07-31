@@ -1,0 +1,233 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+.navbar.navbar.navbar-expand-lg.bg-body-tertiary{
+    height: 105px;
+    padding-left: 140px;
+    z-index: 2;
+}
+.nav-link{
+    color: rgba(172, 59, 59, 0.792);
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 25px;
+}
+.form-control.me-2{
+    border: 1px solid rgba(173, 47, 47, 0.786);
+}
+.btn.btn-outline-success{
+    border: 2px solid rgba(173, 47, 47, 0.786);
+    color:rgba(172, 59, 59, 0.792);
+}
+.btn.btn-outline-success:hover{
+    background-color: rgba(0, 0, 0, 0.786);
+    color:rgb(255, 208, 0);
+   
+}
+@media only screen and (max-width: 992px) {
+
+    .navbar.navbar.navbar-expand-lg.bg-body-tertiary{
+        height: 0% !important; 
+        padding-left: 0% !important; 
+        z-index: 1; 
+    }
+    .dropdown-item{
+    color: rgba(173, 47, 47, 0.786) !important;
+        font-weight: 500 !important;   
+        border-radius: 3px !important;
+        font-size: medium !important;
+    }
+    .dropdown-item:hover{
+        background-color: black !important;
+        color: rgb(255, 208, 0) !important;
+    }
+
+    .imga{
+        display: block ;
+        margin-left: auto ;
+        margin-right: auto;
+        width: 50%;
+    }
+    
+    #qaz{
+        font-size: 11px;
+    }
+
+    #title1{
+        font-size: 28px !important;
+        font-weight: 300 !important;
+        border-bottom: 2px rgb(255, 200, 1) double !important;
+        border-top: 2px rgb(255, 200, 1) double !important;
+    }
+
+
+    
+}
+
+.dropdown-item{
+    color:  rgba(173, 47, 47, 0.786);
+    font-weight: 600;   
+ 
+}
+.dropdown-item:hover{
+    background-color: black;
+  color: rgba(255, 208, 0);;
+}
+
+.nav-link:hover{
+    text-decoration: rgba(173, 47, 47, 0.786) solid underline;
+    color: rgb(50, 1, 1);
+}
+
+.imga{
+    height: 100px;
+    width: 100px;
+    background-image: url(coffee-shop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar-toggler-icon:hover{
+    border-bottom: 3px solid rgba(173, 47, 47, 0.786);
+}
+.back{
+    max-width: 100%;
+    height: auto;
+    background-image: url(we.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+#title1{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: #280d04ea;
+    font-size: 50px;
+    font-weight: 400;
+    font-family:fantasy;
+    border-bottom: 3px gold double;
+    border-top: 3px gold double;
+}
+.keep{
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+}
+#cof{
+    height: 250px;
+    width: 250px;
+    background-image: url(CAFECAL.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 500px;
+    border: 2px dashed goldenrod;
+}
+
+#typess{
+    background-image: url(types.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:300px;
+    width: 900px;
+}
+.ni0{
+    text-decoration: none;
+    color: white;
+    line-height: 0px;
+}
+.ni0:hover{
+    color: rgba(255, 217, 0, 0.749);
+    text-decoration: underline;
+}
+.bolder{
+    text-decoration: underline;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.help{
+    color: white;
+    margin: 40px;
+    }
+    #qaz{
+        height: auto;
+        width: auto;
+        background-color: #280d04ea;
+        display: flex;
+        justify-content: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+#jin{
+    height: 60px;
+    width: auto;
+    background-color: #280d04ea;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.ki{
+    text-decoration: none;
+    font-size: 13px;
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 20px;
+}
+.ki:hover{
+    color: rgba(255, 217, 0, 0.749);
+    text-decoration: underline;
+}
+
+.whitee{
+    height: 1px;
+    width: auto;
+    background-color: white;
+}
+
+#jin2{
+    height: auto;
+    width: auto;
+    background-color: #180904ea;
+    color: white;
+    text-align: center;
+}
+
+
+.fol{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+#cd{
+    height: 40px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    border: 2px solid brown;
+    background-color: hsla(0, 100%, 50%, 0.673);
+    text-decoration: none;
+    color: #ffffff;
+
+}
+.ko{
+    height: 40px;
+    width: auto;
+    background-color: #f5e400;
+    display: flex;
+    justify-content: center;
+    border: 2px solid brown;
+
+}

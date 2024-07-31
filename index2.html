@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: #4a90e2;
+    color: white;
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.location, .temperature {
+    text-align: center;
+}
+
+.main::after {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+background-color: #4a90e2;
+opacity: 0.4;
+z-index: -2;
+}
+
+.header {
+    text-align: center;
+}
+
+.upcoming-hours {
+    margin-top: 20px;
+}
+
+.hours {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hour {
+    text-align: center;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.detail {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="location">
+                <h2 id="location">New York, USA</h2>
+                <p id="sunrise-sunset">07:19 | 19:32</p>
+            </div>
+            <div class="temperature">
+                <h1 id="current-temp">27°</h1>
+                <p id="weather-description">Sunny</p>
+            </div>
+        </div>
+        <div class="main">
+            <div class="header">
+                <h2>Welcome back Isabella!</h2>
+                <p>Check out today’s weather information</p>
+            </div>
+            <div class="upcoming-hours">
+                <h3>Upcoming hours</h3>
+                <div class="hours" id="hourly-forecast">
+
+                </div>
+            </div>
+            <div class="details">
+                <div class="detail">
+                    <h4>Humidity</h4>
+                    <p id="humidity">82%</p>
+                </div>
+                <div class="detail">
+                    <h4>Wind</h4>
+                    <p id="wind-speed">8 km/h</p>
+                </div>
+                <div class="detail">
+                    <h4>Precipitation</h4>
+                    <p id="precipitation">1.4 cm</p>
+                </div>
+                <div class="detail">
+                    <h4>UV Index</h4>
+                    <p id="uv-index">4</p>
+                </div>
+                <div class="detail">
+                    <h4>Feels like</h4>
+                    <p id="feels-like">30°</p>
+                </div>
+                <div class="detail">
+                    <h4>Chance of rain</h4>
+                    <p id="chance-of-rain">42%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+const weatherData = {
+    location: "New York, USA",
+    sunrise: "07:19",
+    sunset: "19:32",
+    currentTemp: "27°",
+    description: "Sunny",
+    hourlyForecast: [
+        { time: "Now", temp: "27°" },
+        { time: "11:00", temp: "28°" },
+        { time: "12:00", temp: "28°" },
+        { time: "13:00", temp: "29°" },
+        { time: "14:00", temp: "29°" },
+        { time: "15:00", temp: "29°" },
+        { time: "16:00", temp: "29°" },
+        { time: "17:00", temp: "28°" }
+    ],
+    humidity: "82%",
+    windSpeed: "8 km/h",
+    precipitation: "1.4 cm",
+    uvIndex: "4",
+    feelsLike: "30°",
+    chanceOfRain: "42%"
+};
+
+function updateWeather() {
+    document.getElementById('location').innerText = weatherData.location;
+    document.getElementById('sunrise-sunset').innerText = `${weatherData.sunrise} | ${weatherData.sunset}`;
+    document.getElementById('current-temp').innerText = weatherData.currentTemp;
+    document.getElementById('weather-description').innerText = weatherData.description;
+
+    const hourlyForecastContainer = document.getElementById('hourly-forecast');
+    hourlyForecastContainer.innerHTML = ''; // Clear existing content
+
+    weatherData.hourlyForecast.forEach(hour => {
+        const hourDiv = document.createElement('div');
+        hourDiv.className = 'hour';
+        hourDiv.innerHTML = `<p>${hour.time}</p><p>${hour.temp}</p>`;
+        hourlyForecastContainer.appendChild(hourDiv);
+    });
+
+    document.getElementById('humidity').innerText = weatherData.humidity;
+    document.getElementById('wind-speed').innerText = weatherData.windSpeed;
+    document.getElementById('precipitation').innerText = weatherData.precipitation;
+    document.getElementById('uv-index').innerText = weatherData.uvIndex;
+    document.getElementById('feels-like').innerText = weatherData.feelsLike;
+    document.getElementById('chance-of-rain').innerText = weatherData.chanceOfRain;
+}
+
+// Call the updateWeather function when the page loads
+window.onload = updateWeather;
+
+    </script>
+</body>
+</html>

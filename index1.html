@@ -1,0 +1,608 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #e0f7fa;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar .location {
+    margin-bottom: 20px;
+}
+
+.sidebar .current-weather {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.sidebar .cityscape {
+    width: 100%;
+    height: 150px;
+    background-image: url('cityscape.png'); /* Add a cityscape image here */
+    background-size: cover;
+    background-position: center;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.weather-forecast .upcoming-hours {
+    margin-bottom: 20px;
+}
+
+.weather-forecast .forecast-graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 150px;
+    background-color: #eceff1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.weather-forecast .forecast-graph .graph-bar {
+    width: 10%;
+    background-color: #29b6f6;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+.weather-forecast .forecast-graph .graph-bar::after {
+    content: attr(style);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.detail {
+    flex: 1 1 30%;
+    background-color: #e0f7fa;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="location">
+                <h2>New York, USA</h2>
+                <p>Today 28 Sept</p>
+                <p>07:19 - 19:32</p>
+            </div>
+            <div class="current-weather">
+                <h1>27°</h1>
+                <p>Sunny</p>
+            </div>
+            <div class="cityscape"></div>
+        </div>
+        <div class="main-content">
+            <header>
+                <h1>Welcome back Isabella!</h1>
+                <p>Check out today's weather information</p>
+            </header>
+            <div class="weather-forecast">
+                <div class="upcoming-hours">
+                    <h2>Upcoming hours</h2>
+                    <div class="forecast-graph">
+                        <div class="graph-bar" style="height: 23%;">27°</div>
+                        <div class="graph-bar" style="height: 29%;">28°</div>
+                        <div class="graph-bar" style="height: 58%;">28°</div>
+                        <div class="graph-bar" style="height: 75%;">29°</div>
+                        <div class="graph-bar" style="height: 33%;">28°</div>
+                        <div class="graph-bar" style="height: 20%;">29°</div>
+                        <div class="graph-bar" style="height: 73%;">29°</div>
+                        <div class="graph-bar" style="height: 49%;">28°</div>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="detail">
+                        <h3>Humidity</h3>
+                        <p>82% bad</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Wind</h3>
+                        <p>8 km/h</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Precipitation</h3>
+                        <p>1.4 cm</p>
+                    </div>
+                    <div class="detail">
+                        <h3>UV Index</h3>
+                        <p>4 medium</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Feels Like</h3>
+                        <p>30°</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Chance of Rain</h3>
+                        <p>42%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0f7fa;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.sidebar {
+    width: 100%;
+    background-color: #029be5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1e88e5;
+}
+
+.sidebar .location {
+    margin-bottom: 20px;
+}
+
+.sidebar .location h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.sidebar .location p {
+    font-size: 1em;
+}
+
+.sidebar .current-weather {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.sidebar .current-weather p {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sidebar .cityscape {
+    width: 100%;
+    height: 150px;
+    background-image: url('cityscape.png'); /* Add a cityscape image here */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    width: 100%;
+}
+
+header {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+body.dark-mode header {
+    color: #e0e0e0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #029be5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0277bd;
+}
+
+.weather-forecast .upcoming-hours {
+    margin-bottom: 20px;
+}
+
+.weather-forecast .upcoming-hours h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #029be5;
+}
+
+body.dark-mode .weather-forecast .upcoming-hours h2 {
+    color: #81d4fa;
+}
+
+.weather-forecast .forecast-graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 150px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .weather-forecast .forecast-graph {
+    background-color: #424242;
+}
+
+.weather-forecast .forecast-graph .graph-bar {
+    width: 10%;
+    background-color: #29b6f6;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px 0;
+    transition: background-color 0.3s;
+}
+
+.weather-forecast .forecast-graph .graph-bar:hover {
+    background-color: #0288d1;
+}
+
+body.dark-mode .weather-forecast .forecast-graph .graph-bar {
+    background-color: #64b5f6;
+}
+
+body.dark-mode .weather-forecast .forecast-graph .graph-bar:hover {
+    background-color: #42a5f5;
+}
+
+.weather-forecast .forecast-graph .graph-bar span {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    background: rgba(0, 0, 0)
+}
+/* Smooth transition for background color */
+body, .container {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Smooth transition for container */
+.container {
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+@keyframes grow {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--bar-height);
+    }
+}
+
+.weather-forecast .forecast-graph .graph-bar {
+    --bar-height: 0; /* Default height for animation */
+    animation: grow 1s ease-out forwards;
+}
+
+/* Apply specific heights to each bar dynamically using inline styles */
+.weather-forecast .forecast-graph .graph-bar:nth-child(1) {
+    --bar-height: 23%;
+}
+
+.weather-forecast .forecast-graph .graph-bar:nth-child(2) {
+    --bar-height: 29%;
+}
+
+.weather-forecast .forecast-graph .graph-bar:nth-child(3) {
+    --bar-height: 58%;
+}
+
+.weather-forecast .forecast-graph .graph-bar:nth-child(4) {
+    --bar-height: 75%;
+}
+
+.weather-forecast .forecast-graph .graph-bar:nth-child(5) {
+    --bar-height: 33%;
+}
+
+.weather-forecast .forecast-graph .graph-bar:nth-child(6) {
+    --bar-height: 20%;
+}
+
+.weather-forecast .forecast-graph .graph-bar:nth-child(7) {
+    --bar-height: 73%;
+}
+
+.weather-forecast .forecast-graph .graph-bar:nth-child(8) {
+    --bar-height: 49%;
+}
+
+.detail {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0277bd;
+    transform: scale(1.05);
+}
+
+.cityscape {
+    animation: cityscapeAnimation 10s infinite alternate;
+}
+
+@keyframes cityscapeAnimation {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header h1, header p {
+    animation: slideIn 1s ease-out;
+}
+
+.weather-forecast .details {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // JavaScript to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="location">
+                <h2>New York, USA</h2>
+                <p>Today 28 Sept</p>
+                <p>07:19 - 19:32</p>
+            </div>
+            <div class="current-weather">
+                <h1>27°</h1>
+                <p><i class="fas fa-sun"></i> Sunny</p>
+            </div>
+            <div class="cityscape"></div>
+        </div>
+        <div class="main-content">
+            <header>
+                <h1>Welcome back Isabella!</h1>
+                <p>Check out today's weather information</p>
+                <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            </header>
+            <div class="weather-forecast">
+                <div class="upcoming-hours">
+                    <h2>Upcoming hours</h2>
+                    <div class="forecast-graph">
+                        <div class="graph-bar" style="height: 23%;">
+                            <span>27°</span>
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="graph-bar" style="height: 29%;">
+                            <span>28°</span>
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="graph-bar" style="height: 58%;">
+                            <span>28°</span>
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="graph-bar" style="height: 75%;">
+                            <span>29°</span>
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="graph-bar" style="height: 33%;">
+                            <span>28°</span>
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="graph-bar" style="height: 20%;">
+                            <span>29°</span>
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="graph-bar" style="height: 73%;">
+                            <span>29°</span>
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="graph-bar" style="height: 49%;">
+                            <span>28°</span>
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="detail">
+                        <h3>Humidity</h3>
+                        <p>82% <span class="bad">bad</span></p>
+                    </div>
+                    <div class="detail">
+                        <h3>Wind</h3>
+                        <p>8 km/h</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Precipitation</h3>
+                        <p>1.4 cm</p>
+                    </div>
+                    <div class="detail">
+                        <h3>UV Index</h3>
+                        <p>4 <span class="medium">medium</span></p>
+                    </div>
+                    <div class="detail">
+                        <h3>Feels Like</h3>
+                        <p>30°</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Chance of Rain</h3>
+                        <p>42%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
